@@ -8,43 +8,50 @@ struct Student {
   char name[20];
 };
 
-enum FACE {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
-enum SHAPE {HEART, SPADE, CLUB, DIAMOND};
-enum COLOR {BLACK, WHITE};
-
 struct Card {
   int face;
-  int shape;
-  int color;
+  string shape;
 };
 
 int main() {
   struct Card deck[52];
   int count = 0;
+  int faces = 13;
+  int shapes = 4;
 
-  for (int i = ACE; i <= KING; ++i) {
-    for (int j = HEART; j <= DIAMOND; ++j) {
-      for (int k = BLACK; k <= WHITE; ++k) {
-        deck[count].face = i;
-        deck[count].shape = j;
-        deck[count].color = k;
+  for (int i = 1; i <= faces; ++i) {
+    for (int j = 1; j <= shapes; ++j) {
+      switch(j) {
+        case 1:
+          deck[count].shape = "HEARTS";
+          break;
+
+        case 2:
+          deck[count].shape = "SPADES";
+          break;
+
+        case 3:
+          deck[count].shape = "DIAMONDS";
+          break;
+
+        case 4:
+          deck[count].shape = "CLUBS";
+          break;
       }
-    count++;  
+      deck[count].face = i;
+      count++;
     }
   };
 
   count = 0;
 
-  for (int i = ACE; i <= KING; ++i) {
-    for (int j = HEART; j <= DIAMOND; ++j) {
-      for (int k = BLACK; k <= WHITE; ++k) {
-        cout<<"Face: "<<deck[count].face<<", Shape: "<<deck[count].shape<<", Color: "<<deck[count].color<<endl;
-      }
-  count++; 
+  for (int i = 1; i <= faces; ++i) {
+    for (int j = 1; j <= shapes; ++j) {
+      if (deck[count].shape == "DIAMONDS")
+        cout<<"Face: "<<deck[count].face<<", Shape: "<<deck[count].shape<<endl;
+      count++;
     }
-  };
-
-  cout<<"Count: "<<count<<endl;
+  }
 
   return 0;
 }
