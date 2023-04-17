@@ -23,8 +23,13 @@ int main() {
   
   */
 
-  struct Rectangle *p;
-  p = (struct Rectangle *)malloc(sizeof(Rectangle));
+  // In c
+  // struct Rectangle *p;
+  // p = (struct Rectangle *)malloc(sizeof(Rectangle));
+
+  // In CPP, this is valid
+  Rectangle *p;
+  p = new Rectangle;
 
   p->length = 100;
   p->breath = 2;
