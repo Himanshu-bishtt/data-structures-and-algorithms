@@ -7,18 +7,43 @@ int add(int x, int y) {
   return x + y;
 }
 
+void swap(int x, int y) {
+  int temp;
+  temp = x;
+  x = y;
+  y = temp;
+}
+
+void swapAdd(int *x, int *y) {
+  int temp;
+  temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+void swapRef(int &x, int &y) {
+  int temp;
+  temp = x;
+  x = y;
+  y = temp;
+}
+
 int main() {
-  int x, y;
+  int num1, num2;
 
-  cout<<"Enter x: ";
-  cin>>x;
+  cout<<"Enter num1: ";
+  cin>>num1;
 
-  cout<<"Enter y: ";
-  cin>>y;
+  cout<<"Enter num2: ";
+  cin>>num2;
 
-  int sum = add(x,y);
+  
+  cout<<"Before swapping"<<endl;
+  cout<<num1<<", "<<num2<<endl;
+  swapRef(num1, num2);
 
-  cout<<"Sum: "<<sum<<endl;
+  cout<<"After swapping"<<endl;
+  cout<<num1<<", "<<num2<<endl;
 
   return 0;
 }
