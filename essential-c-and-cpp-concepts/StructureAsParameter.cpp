@@ -29,20 +29,34 @@ void display(struct Test t) {
 
   for (int i = 0; i < length; ++i)  
     cout<<t.arr[i]<<" ";
+
+  cout<<endl;
+}
+
+struct Rectangle * createRectangle() {
+  Rectangle *p;
+
+  // p = (struct Rectangle *)malloc(sizeof(struct Rectangle));
+  p = new Rectangle;
+
+  p->length = 22;
+  p->breath = 4;
+
+  return p;
 }
 
 int main() {
   Rectangle r = {10,5};
-  Rectangle *p;
+  Rectangle *p1, *p2;
   
-  p = (Rectangle*)malloc(sizeof(Rectangle));
+  p1 = (Rectangle*)malloc(sizeof(Rectangle));
 
-  p->length = 12;
-  p->breath = 5;
+  p1->length = 12;
+  p1->breath = 5;
 
   int result = area(r);
   int result2 = areaAddress(&r);
-  int result3 = areaAddress(p);
+  int result3 = areaAddress(p1);
 
   cout<<result<<endl;
   cout<<result2<<endl;
@@ -51,6 +65,13 @@ int main() {
   Test t = {{1,2,3,4,5}, 10};
 
   display(t);
+
+  p2 = createRectangle();
+
+  cout<<"Length: "<<p2->length<<endl;
+  cout<<"Breath: "<<p2->breath<<endl;
+
+  delete p1, p2;
 
   return 0;
 }
