@@ -1,46 +1,47 @@
 #include <iostream>
+#include <stdio.h>
 
-using namespace std;
+int ** use_matrix(int r, int c) {
+  int **matrix = (int **)malloc(r*sizeof(int *));
 
-int ** useMatrix(int r, int c) {
-  int **matrix = (int **)malloc(r*sizeof(int));
-
-  for (int i = 0; i < c; ++i) {
-    matrix[i] = (int *)malloc(sizeof(int));
+  for (int i = 0; i < r; ++i) {
+    matrix[i] = (int *)malloc(sizeof(int) * c);
   }
 
-  cout<<"Enter matrix elements..."<<endl;
+  std::cout<<"Enter matrix elements..."<<std::endl;
 
   for (int i = 0; i < r; ++i) {
     for (int j = 0; j < c; ++j) {
-      cout<<"Enter element ("<<i<<" "<<j<<") : ";
-      cin>>matrix[i][j];
+      std::cout<<"Enter element ("<<i<<" "<<j<<") : ";
+      std::cin>>matrix[i][j];
     }
   }
 
   return matrix;
 };
 
-void printMatrix(int **matrix, int rows, int cols) {
-  cout<<"Printing matrix..."<<endl;
+void print_matrix(int **matrix, int rows, int cols) {
+  std::cout<<std::endl<<"Printing matrix..."<<std::endl;
 
   for (int i = 0; i < rows; ++i) {
+      std::cout<<"| ";
     for (int j = 0; j < cols; ++j) {
-      cout<<matrix[i][j]<<" ";
+      std::cout<<matrix[i][j]<<" | ";
     }
-    cout<<endl;
+    std::cout<<std::endl;
   } 
 }
 
 int main() {
   int rows, cols;
 
-  cout<<"Enter rows, cols: ";
-  cin>>rows>>cols;
+  std::cout<<"Enter rows, cols: ";
 
-  int **matrix = useMatrix(rows, cols);
+  std::cin>>rows>>cols;
 
-  printMatrix(matrix, rows, cols);
+  int **matrix = use_matrix(rows, cols);
+
+  print_matrix(matrix, rows, cols);
 
   free(matrix);
 }
