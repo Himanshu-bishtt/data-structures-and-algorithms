@@ -29,3 +29,11 @@ int get_student_roll_number() {
 
   return roll_number;
 };
+
+void print_all_students(Student *students, int n) {
+  std::cout<<"Printing all students......."<<std::endl;
+
+  for (int i = 0; i < n; ++i) {
+    std::cout<<"Name: "<<students[i].get_name()<<", Age: "<<students[i].get_age()<<", Roll: "<<students[i].get_roll_number()<<std::endl;
+  };
+};

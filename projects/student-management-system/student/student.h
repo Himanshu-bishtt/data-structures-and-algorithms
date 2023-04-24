@@ -7,6 +7,12 @@ class Student {
     int roll_number;
   
   public:
+    Student() {
+      this->name = "John Doe";
+      this->age = 0;
+      this->roll_number = 0;
+    };
+
     Student(std::string name, int age, int roll_number) {
       this->name = name;
       this->age = age;
