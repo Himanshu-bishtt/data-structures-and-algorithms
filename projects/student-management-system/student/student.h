@@ -24,4 +24,16 @@ class Student {
     int  get_roll_number() {
       return this->roll_number;
     };
+
+    void set_name(std::string name) {
+      this->name  = name;
+    };
+
+    void set_age(int age) {
+      this->age = age;
+    };
+
+    void set_roll_number(int roll_number) {
+      this->roll_number = roll_number;
+    };
 };
