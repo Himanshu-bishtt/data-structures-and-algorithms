@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-void printValues(int *p, int n) {
+void print_values(int *p, int n) {
   std::cout<<"Printing array..."<<std::endl;
   for (int i = 0; i < n; ++i) {
     std::cout<<p[i]<<" ";
@@ -9,7 +9,7 @@ void printValues(int *p, int n) {
   std::cout<<std::endl;
 }
 
-void getValues(int *p, int n) {
+void get_values(int *p, int n) {
   std::cout<<"Enter values of array...."<<std::endl;
   for (int i = 0; i < n; ++i) {
     std::cout<<"Enter "<<(i+1)<<" value: ";
@@ -30,9 +30,9 @@ int main() {
   // dynamic array
   int *p = new int[n];
   
-  getValues(p, n);
+  get_values(p, n);
 
-  printValues(p, n);
+  print_values(p, n);
 
   delete []p;
 
