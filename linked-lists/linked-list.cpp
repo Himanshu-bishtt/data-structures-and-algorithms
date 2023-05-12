@@ -30,6 +30,13 @@ void display(struct Node *p) {
   };
 };
 
+void display2(struct Node *p) {
+  if (p != NULL) {
+    display2(p->next);
+    printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
+  }; 
+};
+
 int main() {
   /**
    * 
@@ -74,7 +81,9 @@ int main() {
 
   create(arr, 5);
 
-  display(first);
+  // display(first);
+
+  display2(first);
 
   return 0;
 }
