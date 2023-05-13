@@ -63,5 +63,14 @@ int main() {
   std::cout<<"Min element is: "<<min(first)<<std::endl;
   std::cout<<"Min element is: "<<recursive_min(first)<<std::endl;
 
+  struct Node *p = search(first, 119);
+  struct Node *p1 = recursive_search(first, 119);
+  
+  if (!p) std::cout<<"Element not found"<<std::endl;
+  else std::cout<<p->data<<" found at address: "<<p<<std::endl;
+
+  if (!p1) std::cout<<"Element not found"<<std::endl;
+  else std::cout<<p1->data<<" found at address: "<<p1<<std::endl;
+
   return 0;
 }

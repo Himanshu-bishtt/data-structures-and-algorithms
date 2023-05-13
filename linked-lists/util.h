@@ -98,3 +98,17 @@ int recursive_min(struct Node *p) {
   if (p == NULL) return min;
   return p->data < recursive_min(p->next) ? p->data : recursive_min(p->next);
 };
+
+struct Node * search(struct Node *p, int el) {
+  while(p != NULL) {
+    if (p->data == el) return p;
+    p = p->next;
+  };
+  return 0;
+};
+
+struct Node * recursive_search(struct Node *p, int el) {
+  if (p == NULL) return 0;
+  if (p->data == el) return p;
+  return recursive_search(p->next, el);
+}
