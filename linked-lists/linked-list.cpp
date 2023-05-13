@@ -3,23 +3,6 @@
 
 #include "util.h"
 
-int count_nodes(struct Node *p) {
-  int count = 0;
-  while(p != NULL) {
-    count++;
-    p = p->next;
-  };
-  return count;
-};
-
-int R_count_nodes(struct Node *p) {
-  // if (p == NULL) return 0;
-  // else return R_count_nodes(p->next)+1;
-
-  if (p != NULL) return R_count_nodes(p->next)+1;
-  return 0;
-}
-
 int main() {
   /**
    * 
@@ -70,6 +53,8 @@ int main() {
 
   std::cout<<"Total nodes: "<<count_nodes(first)<<std::endl;
   std::cout<<"Total nodes: "<<R_count_nodes(first)<<std::endl;
+  std::cout<<"Sum: "<<sum(first)<<std::endl;
+  std::cout<<"Sum: "<<RSum(first)<<std::endl;
 
   return 0;
 }

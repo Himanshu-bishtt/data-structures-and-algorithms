@@ -36,3 +36,34 @@ void RDisplay(struct Node *p) {
     printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
   }; 
 };
+
+int count_nodes(struct Node *p) {
+  int count = 0;
+  while(p != NULL) {
+    count++;
+    p = p->next;
+  };
+  return count;
+};
+
+int R_count_nodes(struct Node *p) {
+  // if (p == NULL) return 0;
+  // else return R_count_nodes(p->next)+1;
+
+  if (p != NULL) return R_count_nodes(p->next)+1;
+  return 0;
+};
+
+int sum(struct Node *p) {
+  int sum = 0;
+  while(p != NULL) {
+    sum += p->data;
+    p = p->next;
+  };
+  return sum;
+};
+
+int RSum(struct Node *p) {
+  if (!p) return 0;
+  return RSum(p->next)+p->data;
+}
