@@ -1,41 +1,24 @@
 #include <iostream>
 #include <stdlib.h>
 
-struct Node {
-  int data;
-  struct Node * next;
-} *first;
+#include "util.h"
 
-void create(int arr[], int n) {
-  struct Node *t, *last;
-
-  first = (struct Node *)malloc(sizeof(struct Node));
-  first->data = arr[0];
-  first->next = NULL;
-  last = first;
-
-  for (int i = 1; i < n; ++i) {
-    t = (struct Node *)malloc(sizeof(struct Node));
-    t->data = arr[i];
-    t->next = NULL;
-    last->next = t;
-    last = t;
-  };
-};
-
-void display(struct Node *p) {
-  while (p != NULL) {
-    printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
+int count_nodes(struct Node *p) {
+  int count = 0;
+  while(p != NULL) {
+    count++;
     p = p->next;
   };
+  return count;
 };
 
-void display2(struct Node *p) {
-  if (p != NULL) {
-    display2(p->next);
-    printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
-  }; 
-};
+int R_count_nodes(struct Node *p) {
+  // if (p == NULL) return 0;
+  // else return R_count_nodes(p->next)+1;
+
+  if (p != NULL) return R_count_nodes(p->next)+1;
+  return 0;
+}
 
 int main() {
   /**
@@ -81,9 +64,12 @@ int main() {
 
   create(arr, 5);
 
-  // display(first);
+  display(first);
 
-  display2(first);
+  // RDisplay(first);
+
+  std::cout<<"Total nodes: "<<count_nodes(first)<<std::endl;
+  std::cout<<"Total nodes: "<<R_count_nodes(first)<<std::endl;
 
   return 0;
 }
