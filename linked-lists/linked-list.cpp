@@ -44,9 +44,9 @@ int main() {
    * 3. if (head->next)
   */
   
-  int length = 6;
+  int length = 8;
 
-  int arr[length] = {32, 12, 54, 66, 80, 119};
+  int arr[length] = {32, 1321, 54, 66, 1, 80, 119, 23};
 
   create(arr, length);
 
@@ -60,6 +60,8 @@ int main() {
   std::cout<<"Sum: "<<recursive_sum(first)<<std::endl;
   std::cout<<"Max element is: "<<max(first)<<std::endl;
   std::cout<<"Max element is: "<<recursive_max(first)<<std::endl;
+  std::cout<<"Min element is: "<<min(first)<<std::endl;
+  std::cout<<"Min element is: "<<recursive_min(first)<<std::endl;
 
   return 0;
 }

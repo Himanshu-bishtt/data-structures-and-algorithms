@@ -81,4 +81,20 @@ int max (struct Node *p) {
 int recursive_max(struct Node *p) {
   if (p == NULL) return 0;
   return p->data > recursive_max(p->next) ? p->data : recursive_max(p->next);
-}
+};
+
+int min(struct Node *p) {
+  int min = p->data;
+  while (p != NULL) {
+    if (p->data < min)
+      min = p->data;
+    p = p->next;
+  };
+  return min;
+};
+
+int recursive_min(struct Node *p) {
+  int min = INT32_MAX;
+  if (p == NULL) return min;
+  return p->data < recursive_min(p->next) ? p->data : recursive_min(p->next);
+};
