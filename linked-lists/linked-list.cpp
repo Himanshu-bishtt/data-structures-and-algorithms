@@ -52,9 +52,9 @@ int main() {
   // RDisplay(first);
 
   std::cout<<"Total nodes: "<<count_nodes(first)<<std::endl;
-  std::cout<<"Total nodes: "<<R_count_nodes(first)<<std::endl;
+  std::cout<<"Total nodes: "<<recursive_count_nodes(first)<<std::endl;
   std::cout<<"Sum: "<<sum(first)<<std::endl;
-  std::cout<<"Sum: "<<RSum(first)<<std::endl;
+  std::cout<<"Sum: "<<recursive_sum(first)<<std::endl;
 
   return 0;
 }
