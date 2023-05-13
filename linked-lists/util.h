@@ -67,3 +67,18 @@ int recursive_sum(struct Node *p) {
   if (!p) return 0;
   return recursive_sum(p->next)+p->data;
 };
+
+int max (struct Node *p) {
+  int max = p->data;
+  while (p != NULL) {
+    if (p->data > max)
+      max = p->data;
+    p = p->next;
+  };
+  return max;
+};
+
+int recursive_max(struct Node *p) {
+  if (p == NULL) return 0;
+  return p->data > recursive_max(p->next) ? p->data : recursive_max(p->next);
+}
