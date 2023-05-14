@@ -44,21 +44,14 @@ int main() {
    * 3. if (head->next)
   */
   
-  int length = 3;
+  int length = 7;
 
-  int arr[length] = {32, 1321, 54};
+  int arr[length] = {32, 1321, 54, 10, 23, 56, 88};
 
-  create(arr, length);
+  // create(arr, length);
 
-  display(first);
-
-  // insert_at_beginning(111);
-
-  // display(first);
-
-  // insert_at_position(999, 4);
-
-  insert(2, 100);
+  for (int i = 0; i < length; ++i)
+    insert(i, arr[i]);
 
   display(first);
 
