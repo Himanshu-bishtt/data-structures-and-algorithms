@@ -201,24 +201,26 @@ void insert_at_position(int data, int pos) {
 
 void insert(int pos, int data) {
   struct Node *t, *p;
+  
+  p = first;
+  
+  if (pos < 0 || pos > count_nodes(p)) {
+    std::cout<<pos<<": Invalid position!!"<<std::endl;
+    return;
+  };
+  
+  t = (struct Node *)malloc(sizeof(struct Node));
+  t->data = data;
+
 
   if (pos == 0) {
-    t = (struct Node *)malloc(sizeof(struct Node));
-    t->data = data;
     t->next = first;
     first = t;
-  } else if (pos > 0) {
-    p = first;
-
-    for (int i = 0; i < pos - 1 && p; ++i) {
+  } else {
+    for (int i = 0; i < pos - 1; ++i)
       p = p->next;
-    };
 
-    if (p != NULL) {
-      t = (struct Node *)malloc(sizeof(struct Node));
-      t->data = data;
-      t->next = p->next;
-      p->next = t;
-    };
+    t->next = p->next;
+    p->next = t;
   };
 };

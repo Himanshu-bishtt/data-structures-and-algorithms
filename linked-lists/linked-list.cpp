@@ -44,9 +44,9 @@ int main() {
    * 3. if (head->next)
   */
   
-  int length = 8;
+  int length = 3;
 
-  int arr[length] = {32, 1321, 54, 66, 1, 80, 119, 23};
+  int arr[length] = {32, 1321, 54};
 
   create(arr, length);
 
@@ -58,7 +58,7 @@ int main() {
 
   // insert_at_position(999, 4);
 
-  insert(0, 100);
+  insert(2, 100);
 
   display(first);
 
