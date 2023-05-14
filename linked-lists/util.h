@@ -175,4 +175,50 @@ struct Node * move_to_head_searching(struct Node *p, int el) {
     p = p->next;
   };
   return 0;
-}
+};
+
+void insert_at_beginning(int data) {
+  struct Node *t = (struct Node *)malloc(sizeof(struct Node));
+  t->data = data;
+  t->next = first;
+  first = t;
+};
+
+void insert_at_position(int data, int pos) {
+  struct Node *p = first;
+
+  struct Node *t = (struct Node *)malloc(sizeof(struct Node));
+  t->data = data;
+  t->next = NULL;
+
+  for (int i = 0; i < pos - 1; ++i) {
+    p = p->next;
+  };
+
+  t->next = p->next;
+  p->next = t;
+};
+
+void insert(int pos, int data) {
+  struct Node *t, *p;
+
+  if (pos == 0) {
+    t = (struct Node *)malloc(sizeof(struct Node));
+    t->data = data;
+    t->next = first;
+    first = t;
+  } else if (pos > 0) {
+    p = first;
+
+    for (int i = 0; i < pos - 1 && p; ++i) {
+      p = p->next;
+    };
+
+    if (p != NULL) {
+      t = (struct Node *)malloc(sizeof(struct Node));
+      t->data = data;
+      t->next = p->next;
+      p->next = t;
+    };
+  };
+};

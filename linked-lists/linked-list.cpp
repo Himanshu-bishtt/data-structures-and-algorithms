@@ -52,8 +52,19 @@ int main() {
 
   display(first);
 
+  // insert_at_beginning(111);
+
+  // display(first);
+
+  // insert_at_position(999, 4);
+
+  insert(0, 100);
+
+  display(first);
+
   // RDisplay(first);
 
+  /*
   std::cout<<"Total nodes: "<<count_nodes(first)<<std::endl;
   std::cout<<"Total nodes: "<<recursive_count_nodes(first)<<std::endl;
   std::cout<<"Sum: "<<sum(first)<<std::endl;
@@ -77,6 +88,7 @@ int main() {
   temp = move_to_head_searching(first, 23);
 
   display(first);
+  */
 
   return 0;
 }
