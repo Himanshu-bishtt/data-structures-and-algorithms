@@ -72,5 +72,11 @@ int main() {
   if (!p1) std::cout<<"Element not found"<<std::endl;
   else std::cout<<p1->data<<" found at address: "<<p1<<std::endl;
 
+  struct Node *temp = move_to_head_searching(first, 119);
+
+  temp = move_to_head_searching(first, 23);
+
+  display(first);
+
   return 0;
 }

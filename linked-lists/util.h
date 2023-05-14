@@ -24,10 +24,12 @@ void create(int arr[], int n) {
 };
 
 void display(struct Node *p) {
+  std::cout<<"-----------------------------------------------------------"<<std::endl;
   while (p != NULL) {
     printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
     p = p->next;
   };
+  std::cout<<"-----------------------------------------------------------"<<std::endl;
 };
 
 void recursive_display(struct Node *p) {
@@ -111,4 +113,19 @@ struct Node * recursive_search(struct Node *p, int el) {
   if (p == NULL) return 0;
   if (p->data == el) return p;
   return recursive_search(p->next, el);
+};
+
+struct Node * move_to_head_searching(struct Node *p, int el) {
+  struct Node * tail;
+  while(p != NULL) {
+    if (p->data == el) {
+      tail->next = p->next;
+      p->next = first;
+      first = p;
+      return p;
+    };
+    tail = p;
+    p = p->next;
+  };
+  return 0;
 }
