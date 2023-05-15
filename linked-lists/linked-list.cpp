@@ -61,6 +61,10 @@ int main() {
 
   display(first);
 
+  delete_at_pos(1);
+
+  display(first);
+
   // RDisplay(first);
 
   /*

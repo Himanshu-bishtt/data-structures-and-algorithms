@@ -243,3 +243,29 @@ void delete_at_end() {
   t->next = NULL;
   free(p);
 };
+
+void delete_at_pos(int pos) {
+  struct Node *p = first;
+  struct Node *t = first;
+
+  int count = count_nodes(first);
+
+  if (pos < 0 || pos > count) {
+    std::cout<<"Invalid index!!"<<std::endl;
+    return;
+  };
+
+  if (pos == 0) {
+    delete_at_begining();
+  } else if (pos == count) {
+    delete_at_end();
+  } else {
+    for (int i = 0; i < pos; ++i) {
+      if (i < pos - 1)
+        t = t->next;
+      p = p->next;
+    };
+    t->next = p->next;
+    free(p);
+  };
+};
