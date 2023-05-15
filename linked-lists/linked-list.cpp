@@ -48,10 +48,14 @@ int main() {
 
   int arr[length] = {32, 1321, 54, 10, 23, 56, 88};
 
-  // create(arr, length);
+  create(arr, length);
 
-  for (int i = 0; i < length; ++i)
-    insert(i, arr[i]);
+  // for (int i = 0; i < length; ++i)
+  //   insert(i, arr[i]);
+
+  display(first);
+
+  delete_at_begining();
 
   display(first);
 

@@ -224,3 +224,9 @@ void insert(int pos, int data) {
     p->next = t;
   };
 };
+
+void delete_at_begining() {
+  struct Node *t = first;
+  first = first->next;
+  free(t);
+};
