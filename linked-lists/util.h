@@ -230,3 +230,16 @@ void delete_at_begining() {
   first = first->next;
   free(t);
 };
+
+void delete_at_end() {
+  struct Node *p = first;
+  struct Node *t = first;
+
+  while (p->next != NULL) {
+    t = p;
+    p = p->next;
+  };
+
+  t->next = NULL;
+  free(p);
+};

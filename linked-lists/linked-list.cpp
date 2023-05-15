@@ -57,6 +57,8 @@ int main() {
 
   delete_at_begining();
 
+  delete_at_end();
+
   display(first);
 
   // RDisplay(first);
