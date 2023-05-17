@@ -4,7 +4,7 @@
 struct Node {
   int data;
   struct Node * next;
-} *first;
+} *first, *last;
 
 /**
  * 
@@ -35,6 +35,10 @@ void create(int arr[], int n) {
 */
 void display(struct Node *p) {
   std::cout<<"-----------------------------------------------------------"<<std::endl;
+  if (first == NULL) {
+    std::cout<<"Linked list is empty!!"<<std::endl;
+    return;
+  };
   while (p != NULL) {
     printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
     p = p->next;
@@ -268,4 +272,20 @@ void delete_at_pos(int pos) {
     t->next = p->next;
     free(p);
   };
+};
+
+void insertLast(int data) {
+  struct Node *t;
+
+  t = (struct Node *)malloc(sizeof(struct Node));
+  t->data = data;
+  t->next = NULL;
+
+  if (first == NULL) {
+    first = last = t;
+    return;
+  };
+
+  last->next = t;
+  last = t;
 };

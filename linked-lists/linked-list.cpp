@@ -48,22 +48,30 @@ int main() {
 
   int arr[length] = {32, 1321, 54, 10, 23, 56, 88};
 
-  create(arr, length);
+  // create(arr, length);
+
+  display(first);
+
+  insertLast(100);
+  insertLast(200);
+  insertLast(300);
+  insertLast(400);
+
+  display(first);
+
 
   // for (int i = 0; i < length; ++i)
   //   insert(i, arr[i]);
 
-  display(first);
+  // delete_at_begining();
 
-  delete_at_begining();
+  // delete_at_end();
 
-  delete_at_end();
+  // display(first);
 
-  display(first);
+  // delete_at_pos(1);
 
-  delete_at_pos(1);
-
-  display(first);
+  // display(first);
 
   // RDisplay(first);
 
