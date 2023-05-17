@@ -59,6 +59,17 @@ int main() {
 
   display(first);
 
+  insertInSortedList(225);
+  insertInSortedList(125);
+  insertInSortedList(525);
+  insertInSortedList(55);
+  insertInSortedList(15);
+  insertInSortedList(-125);
+
+  display(first);
+
+  // std::cout<<first->data<<std::endl;
+
 
   // for (int i = 0; i < length; ++i)
   //   insert(i, arr[i]);

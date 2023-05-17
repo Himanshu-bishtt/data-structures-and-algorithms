@@ -289,3 +289,29 @@ void insertLast(int data) {
   last->next = t;
   last = t;
 };
+
+void insertInSortedList(int data) {
+  struct Node *t, *p, *trail;
+
+  t = (struct Node *)malloc(sizeof(struct Node));
+  t->data = data;
+  t->next = NULL;
+
+  p = first;
+
+  if (first->data > data) {
+    t->next = p;
+    first = t;
+    return;
+  };
+
+  bool flag = true;
+
+  while (p && p->data < data) {
+    trail = p;
+    p = p->next;
+  }
+
+  t->next = trail->next;
+  trail->next = t;
+};
