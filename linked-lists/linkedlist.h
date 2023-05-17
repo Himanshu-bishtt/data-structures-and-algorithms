@@ -266,17 +266,18 @@ int delete_at_pos(int pos) {
 
   if (pos == 1) {
     data = delete_at_begining();
-  } else if (pos == count) {
-    data = delete_at_end();
-  } else {
-    for (int i = 0; i < pos - 1; ++i) {
-      t = p;
-      p = p->next;
-    };
-    t->next = p->next;
-    data = p->data;
-    free(p);
+    return data;
+  }; 
+    
+  for (int i = 0; i < pos - 1; ++i) {
+    t = p;
+    p = p->next;
   };
+  
+  t->next = p->next;
+  data = p->data;
+  free(p);
+
   return data;
 };
 
