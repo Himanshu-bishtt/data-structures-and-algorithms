@@ -50,21 +50,21 @@ int main() {
 
   // create(arr, length);
 
+  // display(first);
+
+  // insertLast(100);
+  // insertLast(200);
+  // insertLast(300);
+  // insertLast(400);
+
   display(first);
 
-  insertLast(100);
-  insertLast(200);
-  insertLast(300);
-  insertLast(400);
-
-  display(first);
-
-  insertInSortedList(225);
-  insertInSortedList(125);
-  insertInSortedList(525);
-  insertInSortedList(55);
-  insertInSortedList(15);
-  insertInSortedList(-125);
+  insertInSortedList(first, 225);
+  // insertInSortedList(first, 125);
+  // insertInSortedList(first, 525);
+  // insertInSortedList(first, 55);
+  // insertInSortedList(first, 15);
+  // insertInSortedList(first, -125);
 
   display(first);
 
