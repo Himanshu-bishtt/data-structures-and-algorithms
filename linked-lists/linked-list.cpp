@@ -60,11 +60,27 @@ int main() {
   display(first);
 
   insertInSortedList(first, 225);
-  // insertInSortedList(first, 125);
-  // insertInSortedList(first, 525);
-  // insertInSortedList(first, 55);
-  // insertInSortedList(first, 15);
-  // insertInSortedList(first, -125);
+  insertInSortedList(first, 125);
+  insertInSortedList(first, 525);
+  insertInSortedList(first, 55);
+  insertInSortedList(first, 15);
+  insertInSortedList(first, -125);
+
+  display(first);
+
+  int d = delete_at_begining();
+
+  std::cout<<d<<" is deleted from the memory..."<<std::endl;
+
+  d = delete_at_end();
+
+  std::cout<<d<<" is deleted from the memory..."<<std::endl;
+
+  display(first);
+
+  d = delete_at_pos(4);
+
+  (d != -1 && std::cout<<d<<" is deleted from the memory..."<<std::endl);
 
   display(first);
 

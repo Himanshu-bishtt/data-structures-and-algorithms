@@ -229,13 +229,15 @@ void insert(int pos, int data) {
   };
 };
 
-void delete_at_begining() {
+int delete_at_begining() {
   struct Node *t = first;
   first = first->next;
+  int data = t->data;
   free(t);
+  return data;
 };
 
-void delete_at_end() {
+int delete_at_end() {
   struct Node *p = first;
   struct Node *t = first;
 
@@ -245,33 +247,37 @@ void delete_at_end() {
   };
 
   t->next = NULL;
+  int data = p->data;
   free(p);
+  return data;
 };
 
-void delete_at_pos(int pos) {
+int delete_at_pos(int pos) {
   struct Node *p = first;
-  struct Node *t = first;
+  struct Node *t;
+  int data;
 
   int count = count_nodes(first);
 
   if (pos < 0 || pos > count) {
     std::cout<<"Invalid index!!"<<std::endl;
-    return;
+    return -1;
   };
 
-  if (pos == 0) {
-    delete_at_begining();
+  if (pos == 1) {
+    data = delete_at_begining();
   } else if (pos == count) {
-    delete_at_end();
+    data = delete_at_end();
   } else {
-    for (int i = 0; i < pos; ++i) {
-      if (i < pos - 1)
-        t = t->next;
+    for (int i = 0; i < pos - 1; ++i) {
+      t = p;
       p = p->next;
     };
     t->next = p->next;
+    data = p->data;
     free(p);
   };
+  return data;
 };
 
 void insertLast(int data) {
