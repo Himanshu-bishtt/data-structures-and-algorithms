@@ -323,3 +323,16 @@ void insertInSortedList(struct Node *p, int data) {
   t->next = trail->next;
   trail->next = t;
 };
+
+bool isSorted(struct Node *p) {
+  int x = INT32_MIN;
+  bool sorted = true;
+
+  while(p != NULL) {
+    if (p->data < x) return false;
+    x = p->data;
+    p = p->next;
+  };
+  
+  return sorted;
+}

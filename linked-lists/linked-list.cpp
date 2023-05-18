@@ -46,43 +46,47 @@ int main() {
   
   int length = 7;
 
-  int arr[length] = {32, 1321, 54, 10, 23, 56, 88};
+  int arr[length] = {10, 20, 30, 40, 50, 60, 70};
 
-  // create(arr, length);
+  create(arr, length);
 
-  // display(first);
+  display(first);
+
+  bool sorted = isSorted(first);
+
+  std::cout<<"Is list sorted: "<<sorted<<std::endl;
 
   // insertLast(100);
   // insertLast(200);
   // insertLast(300);
   // insertLast(400);
 
-  display(first);
+  // display(first);
 
-  insertInSortedList(first, 225);
-  insertInSortedList(first, 125);
-  insertInSortedList(first, 525);
-  insertInSortedList(first, 55);
-  insertInSortedList(first, 15);
-  insertInSortedList(first, -125);
+  // insertInSortedList(first, 225);
+  // insertInSortedList(first, 125);
+  // insertInSortedList(first, 525);
+  // insertInSortedList(first, 55);
+  // insertInSortedList(first, 15);
+  // insertInSortedList(first, -125);
 
-  display(first);
+  // display(first);
 
-  int d = delete_at_begining();
+  // int d = delete_at_begining();
 
-  std::cout<<d<<" is deleted from the memory..."<<std::endl;
+  // std::cout<<d<<" is deleted from the memory..."<<std::endl;
 
-  d = delete_at_end();
+  // d = delete_at_end();
 
-  std::cout<<d<<" is deleted from the memory..."<<std::endl;
+  // std::cout<<d<<" is deleted from the memory..."<<std::endl;
 
-  display(first);
+  // display(first);
 
-  d = delete_at_pos(4);
+  // d = delete_at_pos(4);
 
-  (d != -1 && std::cout<<d<<" is deleted from the memory..."<<std::endl);
+  // (d != -1 && std::cout<<d<<" is deleted from the memory..."<<std::endl);
 
-  display(first);
+  // display(first);
 
   // std::cout<<first->data<<std::endl;
 
