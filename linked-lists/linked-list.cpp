@@ -54,7 +54,7 @@ int main() {
 
   bool sorted = isSorted(first);
 
-  std::cout<<"Is list sorted: "<<sorted<<std::endl;
+  std::cout<<(sorted ? "Linked list is sorted" : "Linked list is not sorted")<<std::endl;
 
   // insertLast(100);
   // insertLast(200);
