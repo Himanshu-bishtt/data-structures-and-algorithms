@@ -281,7 +281,7 @@ int delete_at_pos(int pos) {
   return data;
 };
 
-void insertLast(int data) {
+void insert_last(int data) {
   struct Node *t;
 
   t = (struct Node *)malloc(sizeof(struct Node));
@@ -297,7 +297,7 @@ void insertLast(int data) {
   last = t;
 };
 
-void insertInSortedList(struct Node *p, int data) {
+void insert_in_sorted_list(struct Node *p, int data) {
   struct Node *t, *trail;
 
   t = (struct Node *)malloc(sizeof(struct Node));
@@ -324,7 +324,7 @@ void insertInSortedList(struct Node *p, int data) {
   trail->next = t;
 };
 
-bool isSorted(struct Node *p) {
+bool is_sorted(struct Node *p) {
   int x = INT32_MIN;
   bool sorted = true;
 
@@ -335,4 +335,26 @@ bool isSorted(struct Node *p) {
   };
   
   return sorted;
-}
+};
+
+void remove_duplicates_from_sorted_list(struct Node *p) {
+  struct Node *q = p->next;
+
+  if (is_sorted(first)) {
+    while(q != NULL) {
+      if (q->data == p->data) {
+        p->next = q->next;
+        delete q;
+        q = p->next;
+      } else {
+        p = q;
+        q = q->next;
+      };
+    };
+  } else {
+    std::cout<<"List is not sorted!!"<<std::endl;
+    return;
+  };
+
+  delete q;
+};

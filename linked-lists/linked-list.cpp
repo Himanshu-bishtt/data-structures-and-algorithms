@@ -44,17 +44,22 @@ int main() {
    * 3. if (head->next)
   */
   
-  int length = 7;
 
-  int arr[length] = {10, 20, 30, 40, 50, 60, 70};
+  int arr[] = {10, 20, 30, 40, 50, 60, 70, 70, 70};
+
+  int length = sizeof(arr)/sizeof(arr[0]);
 
   create(arr, length);
 
   display(first);
 
-  bool sorted = isSorted(first);
+  bool sorted = is_sorted(first);
 
   std::cout<<(sorted ? "Linked list is sorted" : "Linked list is not sorted")<<std::endl;
+
+  remove_duplicates_from_sorted_list(first);
+
+  display(first);
 
   // insertLast(100);
   // insertLast(200);
