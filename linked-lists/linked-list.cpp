@@ -63,7 +63,7 @@ int main() {
 
   // reverse_list(first);
 
-  reverse_list_sliding_pointers(first);
+  recursive_reverse_list(NULL, first);
 
   display(first);
 

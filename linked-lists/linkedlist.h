@@ -450,4 +450,13 @@ void reverse_list_sliding_pointers(struct Node *p) {
   };
 
   first = q;
-}
+};
+
+void recursive_reverse_list(struct Node *q, struct Node *p) {
+  if (p != NULL) {
+    recursive_reverse_list(p, p->next);
+    p->next = q;
+  } else {
+    first = q;
+  };
+};
