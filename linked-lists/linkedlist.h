@@ -429,3 +429,25 @@ void reverse_list(struct Node *p) {
     i--;
   };
 };
+
+/**
+ * 
+ * This is much more efficient way of reversing a linked list than reversing data element of the linked list.
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
+void reverse_list_sliding_pointers(struct Node *p) {
+  struct Node *q, *r;
+  q = r = NULL;
+
+  while (p != NULL) {
+    r = q;
+    q = p;
+    p = p->next;
+    q->next = r; 
+  };
+
+  first = q;
+}

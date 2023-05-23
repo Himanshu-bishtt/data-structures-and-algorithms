@@ -61,7 +61,9 @@ int main() {
 
   display(first);
 
-  reverse_list(first);
+  // reverse_list(first);
+
+  reverse_list_sliding_pointers(first);
 
   display(first);
 
