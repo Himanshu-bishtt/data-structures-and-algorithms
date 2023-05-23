@@ -61,6 +61,10 @@ int main() {
 
   display(first);
 
+  reverse_list(first);
+
+  display(first);
+
   // insertLast(100);
   // insertLast(200);
   // insertLast(300);

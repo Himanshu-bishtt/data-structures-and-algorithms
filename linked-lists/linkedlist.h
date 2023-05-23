@@ -229,6 +229,12 @@ void insert(int pos, int data) {
   };
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(1)
+ * 
+*/
 int delete_at_begining() {
   struct Node *t = first;
   first = first->next;
@@ -237,6 +243,12 @@ int delete_at_begining() {
   return data;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
 int delete_at_end() {
   struct Node *p = first;
   struct Node *t = first;
@@ -252,6 +264,12 @@ int delete_at_end() {
   return data;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
 int delete_at_pos(int pos) {
   struct Node *p = first;
   struct Node *t;
@@ -281,6 +299,12 @@ int delete_at_pos(int pos) {
   return data;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(1)
+ * 
+*/
 void insert_last(int data) {
   struct Node *t;
 
@@ -297,6 +321,12 @@ void insert_last(int data) {
   last = t;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
 void insert_in_sorted_list(struct Node *p, int data) {
   struct Node *t, *trail;
 
@@ -324,6 +354,12 @@ void insert_in_sorted_list(struct Node *p, int data) {
   trail->next = t;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
 bool is_sorted(struct Node *p) {
   int x = INT32_MIN;
   bool sorted = true;
@@ -337,6 +373,12 @@ bool is_sorted(struct Node *p) {
   return sorted;
 };
 
+/**
+ * 
+ * Space Complexity: O(1)
+ * Time Complexity: O(n)
+ * 
+*/
 void remove_duplicates_from_sorted_list(struct Node *p) {
   struct Node *q = p->next;
 
@@ -357,4 +399,33 @@ void remove_duplicates_from_sorted_list(struct Node *p) {
   };
 
   delete q;
+};
+
+/**
+ * 
+ * Space Complexity: O(n)
+ * Time Complexity: O(n)
+ * 
+*/
+void reverse_list(struct Node *p) {
+  int count = count_nodes(p);
+
+  int arr[count];
+
+  int i = 0;
+
+  while (p != NULL) {
+    arr[i] = p->data;
+    p = p->next;
+    i++;
+  };
+
+  i = count - 1;
+  p = first;
+  
+  while (p != NULL) {
+    p->data = arr[i];
+    p = p->next;
+    i--;
+  };
 };
