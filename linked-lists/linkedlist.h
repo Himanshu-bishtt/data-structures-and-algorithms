@@ -13,8 +13,8 @@ struct Node {
  * We create a first node and intialize its value. Then we loop over the array and create other nodes of the linked list.
  * 
 */
-void create(int arr[], int n) {
-  struct Node *t, *last;
+struct Node * create(int arr[], int n) {
+  struct Node *first, *t, *last;
 
   first = (struct Node *)malloc(sizeof(struct Node));
   first->data = arr[0];
@@ -28,6 +28,8 @@ void create(int arr[], int n) {
     last->next = t;
     last = t;
   };
+
+  return first;
 };
 
 /**
@@ -35,7 +37,7 @@ void create(int arr[], int n) {
 */
 void display(struct Node *p) {
   std::cout<<"-----------------------------------------------------------"<<std::endl;
-  if (first == NULL) {
+  if (p == NULL) {
     std::cout<<"Linked list is empty!!"<<std::endl;
     return;
   };
@@ -459,4 +461,12 @@ void recursive_reverse_list(struct Node *q, struct Node *p) {
   } else {
     first = q;
   };
+};
+
+void concat_linked_lists(struct Node *ll1, struct Node *ll2) {
+  while(ll1->next != NULL) {
+    ll1 = ll1->next;
+  };
+  ll1->next = ll2;
+  ll2 = NULL;
 };

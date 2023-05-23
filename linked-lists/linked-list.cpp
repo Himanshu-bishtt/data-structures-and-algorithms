@@ -45,27 +45,41 @@ int main() {
   */
   
 
-  int arr[] = {10, 20, 30, 40, 50, 60, 70, 70, 70};
+  int arr[] = {10, 20, 30, 40, 50, 60, 70};
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
-  create(arr, length);
+  int arr2[] = {80, 90, 100};
 
-  display(first);
+  int length2 = sizeof(arr2)/sizeof(arr2[0]);
 
-  bool sorted = is_sorted(first);
+  struct Node *ll1 = create(arr, length);
 
-  std::cout<<(sorted ? "Linked list is sorted" : "Linked list is not sorted")<<std::endl;
+  struct Node *ll2 = create(arr2, length2);
 
-  remove_duplicates_from_sorted_list(first);
+  display(ll1);
 
-  display(first);
+  display(ll2);
 
-  // reverse_list(first);
+  concat_linked_lists(ll1, ll2);
 
-  recursive_reverse_list(NULL, first);
+  display(ll1);
 
-  display(first);
+  std::cout<<count_nodes(ll1)<<std::endl;
+
+  // bool sorted = is_sorted(first);
+
+  // std::cout<<(sorted ? "Linked list is sorted" : "Linked list is not sorted")<<std::endl;
+
+  // remove_duplicates_from_sorted_list(first);
+
+  // display(first);
+
+  // // reverse_list(first);
+
+  // recursive_reverse_list(NULL, first);
+
+  // display(first);
 
   // insertLast(100);
   // insertLast(200);
