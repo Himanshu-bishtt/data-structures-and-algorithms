@@ -45,7 +45,7 @@ int main() {
   */
   
 
-  int arr[] = {10, 20, 30, 40, 50, 60, 70};
+  int arr[] = {10, 15, 30, 85, 92, 101};
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
@@ -61,11 +61,11 @@ int main() {
 
   display(ll2);
 
-  concat_linked_lists(ll1, ll2);
+  merging(ll1, ll2);
 
-  display(ll1);
+  display(third);
 
-  std::cout<<count_nodes(ll1)<<std::endl;
+  std::cout<<count_nodes(third)<<std::endl;
 
   // bool sorted = is_sorted(first);
 

@@ -4,7 +4,7 @@
 struct Node {
   int data;
   struct Node * next;
-} *first, *last;
+} *first, *last, *third;
 
 /**
  * 
@@ -469,4 +469,35 @@ void concat_linked_lists(struct Node *ll1, struct Node *ll2) {
   };
   ll1->next = ll2;
   ll2 = NULL;
+};
+
+void merging(struct Node *first, struct Node *second) {
+  struct Node *last;
+
+  if (first->data < second->data) {
+    third = last = first;
+    first = first->next;
+    third->next = NULL;
+  } else {
+    third = last = second;
+    second = second->next;
+    third->next = NULL;
+  };
+
+  while (first && second) {
+    if (first->data < second->data) {
+      last->next = first;
+      last = first;
+      first = first->next;
+      last->next  = NULL;
+    } else {
+      last->next = second;
+      last = second;
+      second = second->next;
+      last->next = NULL;
+    };
+  };
+
+    if (first != NULL) last->next = first;
+    else last->next = second;
 };
