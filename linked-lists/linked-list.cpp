@@ -51,9 +51,19 @@ int main() {
 
   struct Node *ll1 = create(arr, length);
   
+  struct Node *t1, *t2;
+
   display(ll1);
 
+  // making a loop in the linked list
+  t1 = ll1->next->next;
+  t2 = ll1->next->next->next->next->next;
+  t2->next = t1;
+
   std::cout<<(isLoop(ll1) ? "Linked list is not linear" : "Linked list is linear")<<std::endl;
+
+  std::cout<<t1<<std::endl;
+  std::cout<<t2<<std::endl;
 
   // int arr2[] = {80, 90, 100};
 

@@ -511,7 +511,7 @@ bool isLoop(struct Node *p) {
     q = q->next;
     r = r->next;
     r = r->next != NULL ? r->next : NULL; 
-  } while (q && r);
+  } while (q && r && q != r);
 
   return q == r ? true : false;
 };
