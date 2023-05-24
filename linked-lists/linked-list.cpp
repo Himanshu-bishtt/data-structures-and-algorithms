@@ -49,23 +49,26 @@ int main() {
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
-  int arr2[] = {80, 90, 100};
-
-  int length2 = sizeof(arr2)/sizeof(arr2[0]);
-
   struct Node *ll1 = create(arr, length);
-
-  struct Node *ll2 = create(arr2, length2);
-
+  
   display(ll1);
 
-  display(ll2);
+  std::cout<<(isLoop(ll1) ? "Linked list is not linear" : "Linked list is linear")<<std::endl;
 
-  merging(ll1, ll2);
+  // int arr2[] = {80, 90, 100};
 
-  display(third);
+  // int length2 = sizeof(arr2)/sizeof(arr2[0]);
 
-  std::cout<<count_nodes(third)<<std::endl;
+  // struct Node *ll2 = create(arr2, length2);
+
+  // display(ll2);
+
+  // merging(ll1, ll2);
+
+  // display(third);
+
+  // std::cout<<count_nodes(third)<<std::endl;
+
 
   // bool sorted = is_sorted(first);
 

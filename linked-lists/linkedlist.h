@@ -501,3 +501,17 @@ void merging(struct Node *first, struct Node *second) {
     if (first != NULL) last->next = first;
     else last->next = second;
 };
+
+bool isLoop(struct Node *p) {
+  struct Node *q, *r;
+
+  q = r = p;
+
+  do {
+    q = q->next;
+    r = r->next;
+    r = r->next != NULL ? r->next : NULL; 
+  } while (q && r);
+
+  return q == r ? true : false;
+};
