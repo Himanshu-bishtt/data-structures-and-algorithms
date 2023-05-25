@@ -7,14 +7,14 @@ int main() {
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
-  LinkedList ll(arr, length);
+  LinkedList<int> ll(arr, length);
 
   ll.display();
 
 
   std::cout<<ll.length()<<std::endl;
 
-  ll.insert(3, 99);
+  ll.insert(3, 99.312);
 
   ll.display();
 

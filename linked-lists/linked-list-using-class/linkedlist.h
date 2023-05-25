@@ -1,46 +1,48 @@
 #include "node.h"
 
+template<class T>
 class LinkedList {
   private:
-    Node *first;
-    Node *last;
+    Node<T> *first;
+    Node<T> *last;
 
   public:
     LinkedList() {
       this->first = NULL;
     };
 
-    LinkedList(int arr[], int n);
+    LinkedList(T arr[], int n);
 
     ~LinkedList();
 
     void display();
 
-    void insert(int index, int data);
+    void insert(int index, T data);
 
-    int delete_el(int index);
+    T delete_el(int index);
 
     int length();
 
-    Node * getFirst() {
+    Node<T> * getFirst() {
       return this->first;
     };
 
-    Node * getLast() {
+    Node<T> * getLast() {
       return this->last;
     };
 };
 
-LinkedList::LinkedList(int arr[], int n) {
-  Node *temp;
+template <class T>
+LinkedList<T>::LinkedList(T arr[], int n) {
+  Node<T> *temp;
 
-  this->first = new Node;
+  this->first = new Node<T>;
   this->first->data = arr[0];
   this->first->next = NULL;
   this->last = first;
 
   for (int i = 1; i < n; ++i) {
-    temp = new Node;
+    temp = new Node<T>;
     temp->data = arr[i];
     temp->next = NULL;
     this->last->next = temp;
@@ -48,10 +50,11 @@ LinkedList::LinkedList(int arr[], int n) {
   };
 };
 
-LinkedList::~LinkedList() {
+template <class T>
+LinkedList<T>::~LinkedList() {
   std::cout<<"Destructor called"<<std::endl;
 
-  Node *p = this->first;
+  Node<T> *p = this->first;
 
   while(first) {
     first = first->next;
@@ -60,23 +63,25 @@ LinkedList::~LinkedList() {
   };
 };
 
-void LinkedList::display() {
+template <class T>
+void LinkedList<T>::display() {
   std::cout<<"******************************************************"<<std::endl;
-  Node *p = this->first;
+  Node<T> *p = this->first;
   while (p != NULL) {
-    printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
+    printf("Data: %f, Address: %p, Next: %p\n", p->data, p, p->next);
     p = p->next;
   };
   std::cout<<"******************************************************"<<std::endl;
 };
 
-void LinkedList::insert(int index, int data) {
-  Node *temp, *p = this->first;
+template <class T>
+void LinkedList<T>::insert(int index, T data) {
+  Node<T> *temp, *p = this->first;
   int length = this->length();
 
   if (index < 0 || index > length) return;
 
-  temp = new Node;
+  temp = new Node<T>;
   temp->data = data;
   temp->next = NULL;
 
@@ -98,13 +103,13 @@ void LinkedList::insert(int index, int data) {
   p->next = temp;
 };
 
-int LinkedList::delete_el(int index) {
+template <class T>
+T LinkedList<T>::delete_el(int index) {
   if (this->first == NULL) return -1;
 
   int data;
 
-  Node *p = this->first;
-  Node *q;
+  Node<T> *p = this->first, *q;
 
   int count = this->length();
 
@@ -129,8 +134,9 @@ int LinkedList::delete_el(int index) {
   return data;
 };
 
-int LinkedList::length() {
-  Node * t = this->first;
+template <class T>
+int LinkedList<T>::length() {
+  Node<T> *t = this->first;
 
   int count = 0;
 
