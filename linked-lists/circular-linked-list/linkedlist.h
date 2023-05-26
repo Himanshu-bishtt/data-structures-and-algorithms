@@ -26,6 +26,11 @@ void create(int arr[], int n) {
 };
 
 void display(struct Node *p) {
+  if (p == NULL) {
+    std::cout<<"LINKED LIST IS EMPTY"<<std::endl;
+    return;
+  };
+
   do {
     printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
     p = p->next;
@@ -47,6 +52,8 @@ void recursive_display(struct Node *p) {
 
 int count(struct Node *p) {
   int count = 0;
+
+  if (p == NULL) return count;
 
   do {
     count++;

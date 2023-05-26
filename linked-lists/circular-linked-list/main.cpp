@@ -3,25 +3,19 @@
 #include "linkedlist.h"
 
 int main() {
-  int arr[] = {10};
+  int arr[] = {10, 5, 12, 54, 765};
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
   create(arr, length);
 
-  // display(head);  
+  insert(head, 1, 999);
 
   display(head);
 
-  std::cout<<count(head)<<std::endl;
+  insert(head, 1, 9999);
 
-  // insert(head, 5, 500);
-
-  // display(head);
-
-  // insert(head, 1, 999);
-
-  // display(head);
+  display(head);
 
   std::cout<<head<<std::endl;
 
