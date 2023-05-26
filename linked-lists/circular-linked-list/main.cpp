@@ -3,7 +3,7 @@
 #include "linkedlist.h"
 
 int main() {
-  int arr[] = {10, 5, 12, 54, 765};
+  int arr[] = {10, 5, 12, 54, 765, 444, 999};
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
@@ -13,13 +13,14 @@ int main() {
 
   display(head);
 
-  insert(head, 1, 9999);
+  int el = delete_el(head, 1);
+
+  std::cout<<el<<" is deleted!"<<std::endl;
 
   display(head);
 
-  std::cout<<head<<std::endl;
-
-  std::cout<<tail<<std::endl;
+  std::cout<<"Head: "<<head<<std::endl;
+  std::cout<<"Tail: "<<tail<<std::endl;
 
   return 0;
 }
