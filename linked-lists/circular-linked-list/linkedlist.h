@@ -3,10 +3,10 @@
 struct Node {
   int data;
   struct Node *next;
-} *head;
+} *head, *tail;
 
 void create(int arr[], int n) {
-  struct Node *t, *tail;
+  struct Node *t;
 
   head = (struct Node *)malloc(sizeof(struct Node));
   head->data = arr[0];
@@ -30,8 +30,8 @@ void display(struct Node *p) {
     printf("Data: %d, Address: %p, Next: %p\n", p->data, p, p->next);
     p = p->next;
   } while (p != head);
+  std::cout<<"********************************************************************"<<std::endl;
 };
-
 
 void recursive_display(struct Node *p) {
   static int flag = 0;
@@ -43,4 +43,47 @@ void recursive_display(struct Node *p) {
   };
 
   flag = 0;
+};
+
+int count(struct Node *p) {
+  int count = 0;
+
+  do {
+    count++;
+    p = p->next;
+  } while (p != head);
+
+  return count;
+};
+
+void insert(struct Node *p, int index, int data) {
+  struct Node *temp;
+
+  int length = count(head);
+
+  if (index <= 0 || index > length) {
+    std::cout<<"INVALID INDEX "<<index<<std::endl;
+    return;
+  };
+
+  temp = (struct Node *)malloc(sizeof(struct Node));
+  temp->data = data;
+  temp->next = NULL;
+
+  if (index == 1) {
+    // insert beginning
+    temp->next = head;
+    head = temp;
+    tail->next = head;
+  } else {
+    // insert at pos
+    for (int i = 1; i < index; ++i)
+      p = p->next;
+    temp->next = p->next;
+    p->next = temp;
+  };
+
+  if (p == tail) {
+    tail = temp;
+  };
 };
