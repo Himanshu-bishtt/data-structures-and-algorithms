@@ -40,4 +40,40 @@ int length(struct Node *p) {
     p = p->next;
   };
   return count;
-}
+};
+
+void insert(struct Node *p, int index, int data) {
+  struct Node *temp, *q;
+
+  int count = length(p);
+
+  if (index <= 0 || index > count) {
+    std::cout<<"Invalid index!!"<<std::endl;
+    return;
+  };
+
+  temp = (struct Node *)malloc(sizeof(struct Node));
+  temp->data = data;
+  temp->next = temp->prev = NULL;
+
+  if (index == 1) {
+    // insert at beginning
+    temp->prev = NULL;
+    temp->next = p;
+    p->prev = temp;
+    first = temp;
+  } else {
+    for (int i = 1; i < index; ++i) p = p->next;
+
+    temp->next = p->next;
+    temp->prev = p;
+
+    if (p->next != NULL) {
+      q = p->next;
+      q->prev = temp;
+    };
+    p->next = temp;
+
+    if (index == count) last = temp;
+  };
+};
