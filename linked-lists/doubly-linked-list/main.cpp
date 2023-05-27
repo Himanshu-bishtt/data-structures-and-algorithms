@@ -10,11 +10,11 @@ int main() {
 
   display(first);
 
-  std::cout<<first<<std::endl;
-
-  std::cout<<last<<std::endl;
-
   insert(first, 3, 100);
+
+  display(first);
+
+  std::cout<<delete_el(first, 4)<<" deleted!"<<std::endl;
 
   display(first);
 
