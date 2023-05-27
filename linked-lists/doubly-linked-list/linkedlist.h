@@ -32,3 +32,12 @@ void display(struct Node *p) {
   };
   std::cout<<"**********************************************************************************"<<std::endl;
 };
+
+int length(struct Node *p) {
+  int count = 0;
+  while(p != NULL) {
+    count++;
+    p = p->next;
+  };
+  return count;
+}
