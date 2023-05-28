@@ -26,6 +26,11 @@ void create(int arr[], int n) {
 };
 
 void display(struct Node *p) {
+  if (!p) {
+    std::cout<<"Linked list is empty!!"<<std::endl;
+    return;
+  };
+  
   while (p != NULL) {
     printf("Data: %d, Address: %p, Next: %p, Prev: %p\n", p->data, p, p->next, p->prev);
     p = p->next;
@@ -92,8 +97,8 @@ int delete_el(struct Node *p, int index) {
   if (index == 1) {
     // remove first node
     first = temp->next;
-    temp->next->prev = NULL;
     data = temp->data;
+    if (temp->next) temp->next->prev = NULL;
     delete temp;
   } else {
     // remove any other node

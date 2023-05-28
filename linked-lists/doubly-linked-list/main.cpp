@@ -2,7 +2,7 @@
 #include "linkedlist.h"
 
 int main() {
-  int arr[] = {12, 43, 111, 999};
+  int arr[] = {12};
 
   int length = sizeof(arr)/sizeof(arr[0]);
 
@@ -10,15 +10,11 @@ int main() {
 
   display(first);
 
-  insert(first, 3, 100);
+  // insert(first, 3, 100);
+
+  // display(first);
+
+  std::cout<<delete_el(first, 1)<<" deleted!"<<std::endl;
 
   display(first);
-
-  std::cout<<delete_el(first, 4)<<" deleted!"<<std::endl;
-
-  display(first);
-
-  std::cout<<first<<std::endl;
-
-  std::cout<<last<<std::endl;
-}
+};
