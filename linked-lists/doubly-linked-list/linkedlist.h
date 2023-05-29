@@ -120,3 +120,16 @@ int delete_el(struct Node *p, int index) {
 
   return data;
 };
+
+void reverse(struct Node *p) {
+  struct Node *temp = NULL;
+
+  while (p != NULL) {
+    temp = p->next;
+    p->next = p->prev;
+    p->prev = temp;
+    p = p->prev;
+
+    if (p!= NULL && p->next == NULL) first = p;
+  };
+};
