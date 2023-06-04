@@ -85,3 +85,36 @@ void insert(struct Node *p, int index, int data) {
 
   return;
 };
+
+int delete_el(struct Node *p, int index) {
+  int data;
+
+  int total = count(p);
+
+  if (index <= 0 || index > total) {
+    std::cout<<"Invalid index!!"<<std::endl;
+    return -1;
+  };
+
+  if (index == 1) {
+    // delete at begining
+    p->prev->next = p->next;
+    p->next->prev = p->prev;
+    head = p->next;
+    data = p->data;
+    delete p;
+  } else {
+    // delete at other position
+    for (int i = 1; i < index; ++i) p = p->next;
+
+    if (p == tail) {
+      tail = p->next;
+    };
+
+    p->prev->next = p->next;
+    p->next->prev = p->prev;
+    data = p->data;
+    delete p;
+  };
+  return data;
+};

@@ -15,4 +15,8 @@ int main() {
   insert(head, 7, 999);
 
   display(head);
+
+  std::cout<<"Deleted "<<delete_el(head, 7)<<std::endl;
+
+  display(head);
 }
