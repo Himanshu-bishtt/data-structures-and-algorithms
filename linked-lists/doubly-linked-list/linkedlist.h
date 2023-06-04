@@ -133,3 +133,29 @@ void reverse(struct Node *p) {
     if (p!= NULL && p->next == NULL) first = p;
   };
 };
+
+struct Node * middle_node(struct Node *p) {
+  struct Node *temp = p;
+  int total = length(p);
+  int mid = total / 2;
+
+  for (int i = 1; i <= mid; ++i) {
+    temp = temp->next;
+  };
+  return temp;
+};
+
+struct Node * middle_node_single_scan(struct Node *p) {
+  struct Node *q = p;
+
+  while (q != NULL) {
+    q = q->next;
+    
+    if (q != NULL) {
+      q = q->next;
+      p = p->next;
+    }
+  };
+
+  return p;
+};
