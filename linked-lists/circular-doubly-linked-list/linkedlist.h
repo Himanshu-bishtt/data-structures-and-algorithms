@@ -118,3 +118,22 @@ int delete_el(struct Node *p, int index) {
   };
   return data;
 };
+
+int max(struct Node *p) {
+  int max = INT32_MIN;
+  do {
+    if (p->data > max) max = p->data;
+    p = p->next;
+  } while(p != head);
+
+  return max;
+};
+
+int min(struct Node *p) {
+  int min = INT32_MAX;
+  do {
+    if (p->data < min) min = p->data;
+    p = p->next;
+  } while (p != head);
+  return min;
+};

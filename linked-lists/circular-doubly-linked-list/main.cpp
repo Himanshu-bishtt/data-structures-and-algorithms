@@ -19,4 +19,10 @@ int main() {
   std::cout<<"Deleted "<<delete_el(head, 7)<<std::endl;
 
   display(head);
-}
+
+  std::cout<<"Max: "<<max(head)<<std::endl;
+
+  std::cout<<"Min: "<<min(head)<<std::endl;
+
+  return 0;
+};
