@@ -15,4 +15,8 @@ int main() {
   push(&st, 600);
 
   display(st);
+
+  std::cout<<"Deleted "<<pop(&st)<<std::endl;
+
+  display(st);
 };

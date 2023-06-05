@@ -33,3 +33,15 @@ void push(struct Stack *st, int data) {
   std::cout<<"Inserted "<<data<<std::endl;
 };
 
+int pop(struct Stack *st) {
+  int data = -1;
+  if (st->TOP == -1) {
+    std::cout<<"Stack underflow!!"<<std::endl;
+    return data;
+  };
+
+  data = st->s[st->TOP];
+  st->s[st->TOP] = '\0';
+  st->TOP--;
+  return data;
+};
