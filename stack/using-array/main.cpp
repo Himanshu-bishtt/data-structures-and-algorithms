@@ -3,9 +3,6 @@
 
 int main() {
   create();
-  std::cout<<"Size: "<<st.SIZE<<std::endl;
-  std::cout<<"Top: "<<st.TOP<<std::endl;
-  std::cout<<"Array: "<<st.s<<std::endl;
 
   push(&st, 100);
   push(&st, 200);
@@ -19,4 +16,6 @@ int main() {
   std::cout<<"Deleted "<<pop(&st)<<std::endl;
 
   display(st);
+
+  printf("Data at pos %d: %d\n", 8, peek(&st, 8));
 };
