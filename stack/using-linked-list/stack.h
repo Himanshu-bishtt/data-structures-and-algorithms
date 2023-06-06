@@ -17,7 +17,7 @@ void display(struct Node *p) {
   };
 };
 
-void insert(int data) {
+void push(int data) {
   struct Node *temp = new Node;
 
   if (temp == NULL) {
@@ -29,7 +29,7 @@ void insert(int data) {
   top = temp;
 };
 
-int remove() {
+int pop() {
   struct Node *temp = top;
   int data = -1;
   if (top == NULL) {

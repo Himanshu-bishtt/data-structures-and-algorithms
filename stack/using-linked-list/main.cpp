@@ -2,15 +2,15 @@
 #include "stack.h"
 
 int main() {
-  insert(100);
-  insert(200);
-  insert(300);
-  insert(400);
-  insert(500);
+  push(100);
+  push(200);
+  push(300);
+  push(400);
+  push(500);
 
   display(top);
 
-  std::cout<<"Deleted "<<remove()<<std::endl;
+  std::cout<<"Deleted "<<pop()<<std::endl;
 
   display(top);
 
