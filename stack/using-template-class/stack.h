@@ -27,7 +27,14 @@ Stack<T>::Stack() {
 template <class T>
 Stack<T>::~Stack() {
   std::cout<<"Destructor"<<std::endl;
-  delete this->top;
+  Node<T> *temp;
+  Node<T> *current = this->top;
+  while (current) {
+    temp = current;
+    current = current->next;
+    std::cout<<"Freeing memory at"<<temp<<std::endl;
+    delete temp;
+  };
 };
 
 template <class T>
