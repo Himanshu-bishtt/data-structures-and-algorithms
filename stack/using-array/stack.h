@@ -46,11 +46,23 @@ int pop(struct Stack *st) {
   return data;
 };
 
-int peek(struct Stack *st, int pos) {
-  if (pos < 0 || pos > st->TOP) {
+int peek(struct Stack st, int pos) {
+  if (pos < 0 || pos > st.TOP) {
     std::cout<<"Invalid pos!!"<<std::endl;
     return -1;
   };
   // stack[TOP - position + 1]
-  return *(st->s + (st->TOP - pos + 1));
+  return st.s[st.TOP - pos + 1];
+};
+
+int stackTop(struct Stack st) {
+  return st.TOP == -1 ? -1 : st.s[st.TOP];
+};
+
+bool isEmpty(struct Stack st) {
+  return st.TOP == -1;
+};
+
+bool isFull(struct Stack st) {
+  return st.TOP == st.SIZE - 1;
 };

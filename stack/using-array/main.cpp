@@ -17,5 +17,5 @@ int main() {
 
   display(st);
 
-  printf("Data at pos %d: %d\n", 8, peek(&st, 8));
+  printf("Data at pos %d: %d\n", 8, peek(st, 8));
 };
