@@ -2,7 +2,7 @@
 #include "stack.h"
 
 int main() {
-  create();
+  create(&st);
 
   push(&st, 100);
   push(&st, 200);

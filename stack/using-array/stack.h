@@ -6,12 +6,12 @@ struct Stack {
   int *s;
 } st;
 
-void create() {
+void create(struct Stack *st) {
   std::cout<<"Enter stack size: ";
-  std::cin>>st.SIZE;
+  std::cin>>st->SIZE;
 
-  st.s = (int *)malloc(sizeof(int)*st.SIZE);
-  st.TOP = -1;
+  st->s = (int *)malloc(sizeof(int)*st->SIZE);
+  st->TOP = -1;
 };
 
 void display(struct Stack st) {
