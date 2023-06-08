@@ -49,14 +49,44 @@ bool isBalance(char *expression, int length) {
   return isEmpty();
 };
 
+char stackTop() {
+  return st.s[st.TOP];
+};
+
+bool isBalanced(char *expression, int length) {
+  st.SIZE = length;
+  st.TOP = -1;
+  st.s = new char[st.SIZE];
+
+  for (int i = 0; expression[i] != '\0'; ++i) {
+    if (expression[i] == '{' || expression[i] == '[' || expression[i] == '(') {
+      push(expression[i]);
+    } else if (expression[i] == '}' || expression[i] == ']' || expression[i] == ')') {
+      if (isEmpty()) return false;
+      if (expression[i] == '}' && stackTop() == '{') pop();
+      if (expression[i] == ']' && stackTop() == '[') pop();
+      if (expression[i] == ')' && stackTop() == '(') pop();
+    };
+  };
+  return isEmpty();
+};
+
 int main() {
   char expression[] = {'(','(','a','+','b',')','*','(','c','-','d',')',')'};
 
-  int length = sizeof(expression)/sizeof(expression[0]);
+  char expr[] = "{(a+b)*[(c+d)*(a+d)]}";
 
-  std::cout<<"Parenthesis matching: "<<(isBalance(expression, length) ? "True" : "False")<<std::endl;
+  int length = sizeof(expr)/sizeof(expr[0]);
 
-  printf("\n");
+  bool v = isBalanced(expr, length);
+
+  std::cout<<"Parenthesis matching: "<<(v ? "True" : "False")<<std::endl;
+
+  // int length = sizeof(expression)/sizeof(expression[0]);
+
+  // std::cout<<"Parenthesis matching: "<<(isBalance(expression, length) ? "True" : "False")<<std::endl;
+
+  // printf("\n");
 
   return 0;
 }
