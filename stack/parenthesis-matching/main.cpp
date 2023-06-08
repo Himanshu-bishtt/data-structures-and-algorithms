@@ -64,8 +64,9 @@ bool isBalanced(char *expression, int length) {
     } else if (expression[i] == '}' || expression[i] == ']' || expression[i] == ')') {
       if (isEmpty()) return false;
       if (expression[i] == '}' && stackTop() == '{') pop();
-      if (expression[i] == ']' && stackTop() == '[') pop();
-      if (expression[i] == ')' && stackTop() == '(') pop();
+      else if (expression[i] == ']' && stackTop() == '[') pop();
+      else if (expression[i] == ')' && stackTop() == '(') pop();
+      else return false;
     };
   };
   return isEmpty();
@@ -74,7 +75,7 @@ bool isBalanced(char *expression, int length) {
 int main() {
   char expression[] = {'(','(','a','+','b',')','*','(','c','-','d',')',')'};
 
-  char expr[] = "{(a+b)*[(c+d)*(a+d)]}";
+  char expr[] = "{([{a+b]*[c-d])/e}";
 
   int length = sizeof(expr)/sizeof(expr[0]);
 
