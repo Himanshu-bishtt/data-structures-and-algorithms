@@ -48,7 +48,7 @@ int outPre(char ch) {
     case '^': return 6;
     case '(': return 7;
     case ')': return 0;
-    default: return 0;
+    default: return -1;
   };
 };
 
