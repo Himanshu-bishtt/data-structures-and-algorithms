@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string.h>
+#include <stdlib.h>
 
 struct Stack {
   int SIZE;
   int TOP;
-  char *s;
+  int *s;
 } st;
 
-void push(char ch) {
+void push(int ch) {
   if (st.TOP == st.SIZE - 1) {
     std::cout<<"Stack overflow"<<std::endl;
     return;
@@ -15,8 +16,8 @@ void push(char ch) {
   st.s[++st.TOP] = ch;
 };
 
-char pop() {
-  char ch;
+int pop() {
+  int ch;
   if (st.TOP == -1) {
     std::cout<<"Stack underflow"<<std::endl;
     return '\0';
@@ -26,7 +27,7 @@ char pop() {
   return ch;
 };
 
-char stackTop() {
+int stackTop() {
   return st.s[st.TOP];
 };
 
@@ -62,45 +63,91 @@ int inPre(char ch) {
   };
 };
 
-char * convert(char * infix) {
-  int length = strlen(infix);
-  st.SIZE = length;
-  st.TOP = -1;
-  st.s = (char *)malloc(st.SIZE * sizeof(char));
+/*
+  char * convert(char * infix) {
+    int length = strlen(infix);
+    st.SIZE = length;
+    st.TOP = -1;
+    st.s = (char *)malloc(st.SIZE * sizeof(char));
 
-  char *postfix = (char *)malloc(st.SIZE * sizeof(char));
+    char *postfix = (char *)malloc(st.SIZE * sizeof(char));
 
-  int i, j;
-  i = j = 0;
+    int i, j;
+    i = j = 0;
 
-  while (infix[i] != '\0') {
-    if (isOperand(infix[i])) 
-      postfix[j++] = infix[i++];
-    else {
-      if (isEmpty() || outPre(infix[i]) > inPre(st.s[st.TOP]))
-        push(infix[i++]);
+    while (infix[i] != '\0') {
+      if (isOperand(infix[i])) 
+        postfix[j++] = infix[i++];
       else {
-        if (outPre(infix[i]) == inPre(st.s[st.TOP])) {
-          pop();
-          i++;
-        } else {
-          postfix[j++] = pop();
+        if (isEmpty() || outPre(infix[i]) > inPre(st.s[st.TOP]))
+          push(infix[i++]);
+        else {
+          if (outPre(infix[i]) == inPre(st.s[st.TOP])) {
+            pop();
+            i++;
+          } else {
+            postfix[j++] = pop();
+          };
         };
       };
     };
+
+    while(!isEmpty()) postfix[j++] = pop();
+
+    return postfix;
   };
+*/
 
-  while(!isEmpty()) postfix[j++] = pop();
+int operation(int x1, int x2, char op) {
+  switch(op) {
+    case '+':
+      return x1+x2;
+    case '-':
+      return x1-x2;
+    case '*':
+      return x1*x2;
+    case '/':
+      return x1/x2;
+    default:
+      return -999;
+  };
+};
 
-  return postfix;
+// only valid for single digit operand
+int evaluate(char *postfix) {
+  int length = strlen(postfix);
+  st.SIZE = length;
+  st.TOP = -1;
+  st.s = (int *)malloc(length * sizeof(int));
+  
+  int i, x1, x2, r;
+  i = 0;
+
+  while(postfix[i] != '\0') {
+    if (isOperand(postfix[i]))  
+      push(postfix[i++] - '0');
+    else {
+      x2 = pop(); x1 = pop();
+      r = operation(x1, x2, postfix[i]);
+      push(r);
+      i++;
+    };
+  };
+  return pop();
 };
 
 int main() {
-  char expression[] = "((a+b)*c)-d^e^f";
+  // char expression[] = "3*5+6/2-4";
 
-  printf("Infix: %s\n", expression);
+  // printf("Infix: %s\n", expression);
 
-  printf("Postfix: %s\n", convert(expression));
-  
+  // char *postfix = convert(expression);
+
+  // printf("Postfix: %s\n", postfix);
+
+  char postfix[] = "234*+82/-";
+
+  printf("Result: %d\n", evaluate(postfix));
+
   return 0;
 }
