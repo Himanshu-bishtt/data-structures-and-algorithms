@@ -19,7 +19,7 @@ void initialize(int size) {
 */
 void enqueue(int data) {
   if (queue.rear == queue.size - 1) {
-    std::cout<<"Queue overflow"<<std::endl;
+    std::cout<<"Queue overflow! Cannot insert "<<data<<std::endl;
     return;
   };
   queue.rear++;
@@ -48,4 +48,18 @@ void display() {
     printf("%d ", queue.q[i]);
   };
   printf("\n");
+};
+
+int length() {
+  int c = 0;
+  for (int i = queue.front + 1; i <= queue.rear; ++i) c++;
+  return c;
+};
+
+bool isFull() {
+  return queue.rear == queue.size - 1;
+};
+
+bool isEmpty() {
+  return queue.front == queue.rear;
 };
