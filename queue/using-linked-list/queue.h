@@ -41,7 +41,7 @@ void enqueue(int data) {
   };
   temp->data = data;
   temp->next = NULL;
-  
+
   if (front == NULL) {
     front = rear = temp;
   } else {
@@ -60,4 +60,23 @@ int dequeue() {
   int data = p->data;
   delete p;
   return data;
+};
+
+int length() {
+  struct Node *p = front;
+  int count = 0;
+  while(p != NULL) count++;
+  return count;
+};
+
+bool isEmpty() {
+  return front == NULL;
+};
+
+int first() {
+  return front->data;
+};
+
+int last() {
+  return rear->data;
 };
