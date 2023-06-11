@@ -45,3 +45,11 @@ void enqueue(int data) {
     rear = temp;
   };
 };
+
+int dequeue() {
+  struct Node *p = front;
+  front = p->next;
+  int data = p->data;
+  delete p;
+  return data;
+};

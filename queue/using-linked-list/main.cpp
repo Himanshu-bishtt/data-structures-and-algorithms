@@ -20,6 +20,10 @@ int main() {
 
   display(front);
 
+  std::cout<<"Deleted "<<dequeue()<<std::endl;
+
+  display(front);
+
   std::cout<<"Front: "<<front<<std::endl;
 
   std::cout<<"Rear: "<<rear<<std::endl;
