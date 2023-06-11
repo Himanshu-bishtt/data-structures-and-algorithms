@@ -35,6 +35,10 @@ void display(struct Node *p) {
 
 void enqueue(int data) {
   struct Node *temp = new Node;
+  if (temp == NULL) {
+    std::cout<<"Queue is full"<<std::endl;
+    return;
+  };
   temp->data = data;
   temp->next = NULL;
   
@@ -47,6 +51,10 @@ void enqueue(int data) {
 };
 
 int dequeue() {
+  if (front == NULL) {
+    std::cout<<"Queue is empty"<<std::endl;
+    return;
+  };
   struct Node *p = front;
   front = p->next;
   int data = p->data;
