@@ -10,7 +10,9 @@ int main() {
 
   // printf(index == -1 ? "Element not found\n" : "Element found at index %d\n", index);
 
-  int index = transposition_linear_search(arr, length, 50);
+  // int index = transposition_linear_search(arr, length, 50);
+
+  int index = move_to_head_linear_search(arr, length, 50);
 
   printf(index == -1 ? "Element not found\n" : "Element found at index %d\n", index);
 

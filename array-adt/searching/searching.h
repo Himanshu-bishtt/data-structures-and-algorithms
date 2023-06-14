@@ -24,7 +24,17 @@ int transposition_linear_search(int arr[], int n, int key) {
     };
   };
   return -1;
-}
+};
+
+int move_to_head_linear_search(int arr[], int n, int key) {
+  for (int i = 0; i < n; ++i) {
+    if (arr[i] == key) {
+      swap(&arr[i], &arr[0]);
+      return 0;
+    };
+  };
+  return -1;
+};
 
 int binary_search(int arr[], int n, int key) {
   int left = 0, right = n - 1;
