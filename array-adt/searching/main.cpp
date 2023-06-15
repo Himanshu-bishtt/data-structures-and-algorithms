@@ -12,7 +12,7 @@ int main() {
 
   // int index = transposition_linear_search(arr, length, 50);
 
-  int index = move_to_head_linear_search(arr, length, 50);
+  int index = recursive_binary_search(arr, length, 0, length-1, 50);
 
   printf(index == -1 ? "Element not found\n" : "Element found at index %d\n", index);
 
