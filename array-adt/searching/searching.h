@@ -47,12 +47,12 @@ int binary_search(int arr[], int n, int key) {
   return -1;
 };
 
-int recursive_binary_search(int arr[], int n, int left, int right, int key) {
+int recursive_binary_search(int arr[], int left, int right, int key) {
   if (left <= right) {
     int mid = floor((left + right)/2);
     if (key == arr[mid]) return mid;
-    else if (key > arr[mid]) return recursive_binary_search(arr, n, mid+1, right, key);
-    else return recursive_binary_search(arr, n, left, mid-1, key); 
+    else if (key > arr[mid]) return recursive_binary_search(arr, mid+1, right, key);
+    else return recursive_binary_search(arr, left, mid-1, key); 
   };
   return -1;
 };
