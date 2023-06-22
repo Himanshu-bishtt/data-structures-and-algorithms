@@ -16,5 +16,17 @@ int main() {
 
   std::cout<<(temp ? "Successful search": "Unsuccessful search")<<std::endl;
 
+  int removed = hashtable.remove(100);
+
+  std::cout<<"Item deleted: "<<removed<<std::endl;
+
+  hashtable.display();
+
+  removed = hashtable.remove(75);
+
+  std::cout<<"Item deleted: "<<removed<<std::endl;
+
+  hashtable.display();
+
   return 0;
 }

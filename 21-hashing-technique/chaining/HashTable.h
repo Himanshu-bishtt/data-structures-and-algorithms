@@ -12,6 +12,7 @@ class HashTable {
     void display();
     void insert(int key);
     Node * search(int key);
+    int remove(int key);
     ~HashTable();  
 };
 
@@ -85,3 +86,27 @@ Node * HashTable::search(int key) {
   };
   return 0;
 };
+
+int HashTable::remove(int key) {
+  int data;
+  int hashIndex = hash(key);
+  Node *temp, *p; 
+  temp = HT[hashIndex];
+
+  while(temp) {
+    if (temp->data == key) {
+      if (temp == HT[hashIndex]) {
+        data = temp->data;
+        HT[hashIndex] = NULL;
+      } else {
+        p->next = temp->next;
+        data = temp->data;
+        delete temp;
+      };
+      return data;
+    }
+    p = temp;
+    temp = temp->next;
+  };
+  return -1;
+}
