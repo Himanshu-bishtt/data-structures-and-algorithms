@@ -82,6 +82,7 @@ int main() {
   std::cout<<"Search: "<<search(HT, 12)<<std::endl;
   std::cout<<"Search: "<<search(HT, 92)<<std::endl;
   std::cout<<"Search: "<<search(HT, 15)<<std::endl;
+  std::cout<<"Search: "<<search(HT, 100)<<std::endl;
 
   return 0;
 }
